@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    #registration-container {
+      position: fixed;
+      top: 0;
+      right: -300px; /* Initially off-screen */
+      width: 300px;
+      height: 100%;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      transition: right 0.3s ease-in-out;
+    }
+
+    #registration-card {
+      padding: 20px;
+    }
+
+    #main-content {
+      padding: 20px;
+      padding-right: 320px; /* Adjusted to accommodate the registration container */
+    }
+
+    #toggle-registration-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="toggle-registration-btn">Register</button>
+
+  <div id="registration-container">
+    <div id="registration-card">
+      <!-- Your registration form content goes here -->
+      <h2>Registration Card</h2>
+      <form>
+        <!-- Your registration form fields go here -->
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <br>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="main-content">
+    <!-- Your main content goes here -->
+    <h1>Main Content</h1>
+    <p>This is the main content of your page.</p>
+  </div>
+
+  <script>
+    document.getElementById('toggle-registration-btn').addEventListener('click', function() {
+      var registrationContainer = document.getElementById('registration-container');
+      var mainContent = document.getElementById('main-content');
+
+      if (registrationContainer.style.right === '-300px') {
+        registrationContainer.style.right = '0';
+        mainContent.style.paddingRight = '320px';
+      } else {
+        registrationContainer.style.right = '-300px';
+        mainContent.style.paddingRight = '20px';
+      }
+    });
+  </script>
+</body>
+</html>
